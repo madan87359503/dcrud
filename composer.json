@@ -2,6 +2,7 @@
     "name": "madan/dcrud",
     "description": "Dynamic crud with customizable dashboard",
     "type": "project",
+	"license": "MIT",
     "autoload": {
         "psr-4": {
             "Madan\\Dcrud\\": "src/"
