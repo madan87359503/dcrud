@@ -22,18 +22,18 @@ class DcrudServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->loadRoutesFrom(__DIR__.'/routes.php');
-        $this->loadMigrationsFrom(__DIR__.'/migrations');
-        $this->loadViewsFrom(__DIR__.'/views', 'dcrud');
+        $this->loadRoutesFrom(__DIR__.'/routes.php', 'dcrud');
+        $this->loadMigrationsFrom(__DIR__.'/migrations', 'dcrud');
+        $this->loadViewsFrom(__DIR__.'/views', 'dcrud', 'dcrud');
         $this->publishes([
-            __DIR__.'/views' => base_path('resources/views/dcrud'),
+            __DIR__.'/views' => base_path('resources/views/dcrud', 'dcrud'),
         ]);
         $this->publishes([
         __DIR__ . '/views/resources/js' =>
         resource_path('assets/vendor/dcrud'
-        )], 'vue-components');
+        )], 'dcrud');
         $this->publishes([
-        __DIR__.'/config/dcrud.php' => config_path('dcrud.php'),
+        __DIR__.'/config/dcrud.php' => config_path('dcrud.php', 'dcrud'),
     ]);
     }
 }
