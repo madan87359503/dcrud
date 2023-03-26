@@ -22,6 +22,7 @@ class DcrudServiceProvider extends ServiceProvider
      */
     public function register()
     {
+		$this->app->make(__DIR__.'/MainController.php');
         $this->loadRoutesFrom(__DIR__.'/routes.php');
         $this->loadMigrationsFrom(__DIR__.'/migrations');
         $this->loadViewsFrom(__DIR__.'/views', 'dcrud');

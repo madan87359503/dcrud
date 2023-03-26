@@ -8,6 +8,13 @@
             "Madan\\Dcrud\\": "src/"
         }
     },
+"extra": {
+    "laravel": {
+        "providers": [
+            "Madan\\Dcrud\\DcrudServiceProvider"
+        ]
+    }
+}
     "authors": [
         {
             "name": "Madan"
