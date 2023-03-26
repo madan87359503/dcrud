@@ -11,17 +11,16 @@ class DcrudServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
-    {
-         
-    }
+   public function boot()
+{
+}
 
     /**
      * Bootstrap services.
      *
      * @return void
      */
-    public function boot()
+    public function register()
     {
         $this->loadRoutesFrom(__DIR__.'/routes.php');
         $this->loadMigrationsFrom(__DIR__.'/migrations');
