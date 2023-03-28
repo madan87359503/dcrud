@@ -1,5 +1,7 @@
 <?php
-Route::get('/',[IndexController::class,'index'])->name('public');
+Route::get('/', function () {
+    return view('welcome');
+})->name('public');
 Route::group(['middleware' => ['web', 'auth']], function(){
 Route::get('app/{p}/{m}', [Madan\Dcrud\MainController::class, 'index']);
 Route::post('upload-file/{va}/{na}', [Madan\Dcrud\FileUploadController::class, 'fileUpload'])->name('fileupload');
