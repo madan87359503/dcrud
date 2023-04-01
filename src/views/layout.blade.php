@@ -8,8 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name='csrf-token' content='{{csrf_token()}}'>
-    <title>Gentelella Alela! | </title>
-  <script src="{{asset("gentelella-master/vendors/dropzone/dist/min/dropzone.min.js")}}"></script>
+    <title>DCRUD - Customizable dashboard with crud operation. </title>
+	  <link rel="icon" type="image/x-icon" href="{{preg_replace("#^https?\:\/\/([\w*\.]*)#", "", Request::root() )}}/vendors/favicon.ico"/>
+  <script src="{{asset("vendors/dropzone/dist/min/dropzone.min.js")}}"></script>
   <script>
 var modelData={!!json_encode($modelData)!!};
 
@@ -27,14 +28,14 @@ var homedir='{{route("public")}}/'
 var dashboardtools='{{end($a)}}'
 </script>
     <!-- Bootstrap -->
-    <link href="{{asset("gentelella-master/vendors/bootstrap/dist/css/bootstrap.min.css")}}" rel="stylesheet">
+    <link href="{{asset("vendors/bootstrap/dist/css/bootstrap.min.css")}}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="{{asset("gentelella-master/vendors/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet">
+    <link href="{{asset("vendors/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet">
     <!-- NProgress -->
-    <link href="{{asset("gentelella-master/vendors/nprogress/nprogress.css")}}" rel="stylesheet">
-<link href="{{asset("gentelella-master/vendors/dropzone/dist/min/dropzone.min.css")}}" rel="stylesheet">
+    <link href="{{asset("vendors/nprogress/nprogress.css")}}" rel="stylesheet">
+<link href="{{asset("vendors/dropzone/dist/min/dropzone.min.css")}}" rel="stylesheet">
     <!-- Custom Theme Style -->
-    <link href="{{asset("gentelella-master/build/css/custom.min.css")}}" rel="stylesheet">
+    <link href="{{asset("vendors/css/custom.min.css")}}" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -216,15 +217,15 @@ var dashboardtools='{{end($a)}}'
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/image@2.3.0"></script>
     <script src="{{ str_replace('http:','',url(asset('js').'/app.js')) }}"></script>
     <!-- jQuery -->
-    <script src="{{asset("gentelella-master/vendors/jquery/dist/jquery.min.js")}}" ></script>
+    <script src="{{asset("vendors/jquery/dist/jquery.min.js")}}" ></script>
     <!-- Bootstrap -->
-   <script src="{{asset("gentelella-master/vendors/bootstrap/dist/js/bootstrap.bundle.min.js")}}" ></script>
+   <script src="{{asset("vendors/bootstrap/dist/js/bootstrap.bundle.min.js")}}" ></script>
     <!-- FastClick -->
-    <script src="{{asset("gentelella-master/vendors/fastclick/lib/fastclick.js")}}" ></script>
+    <script src="{{asset("vendors/fastclick/lib/fastclick.js")}}" ></script>
     <!-- NProgress -->
-    <script src="{{asset("gentelella-master/vendors/nprogress/nprogress.js")}}" ></script>
+    <script src="{{asset("vendors/nprogress/nprogress.js")}}" ></script>
     <!-- Custom Theme Scripts -->
-    <script src="{{asset("gentelella-master/build/js/custom.min.js")}}"></script>
+    <script src="{{asset("vendors/js/custom.min.js")}}"></script>
 
   </body>
 </html>
