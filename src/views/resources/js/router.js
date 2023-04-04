@@ -1,4 +1,4 @@
- import Vue from "vue";
+import Vue from "vue";
 import VueRouter from "vue-router"; // We import /Vue router from /vue-router first.
 
 Vue.use(VueRouter) 
