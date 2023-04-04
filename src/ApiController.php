@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\File;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Madan\Dcrud\Role;
+use Madan\Dcrud\Models\Role;
 use Auth;
 class ApiController extends Controller
 {
