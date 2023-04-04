@@ -215,7 +215,7 @@ var dashboardtools='{{end($a)}}'
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/image@2.3.0"></script>
-    <script src="{{ str_replace('http:','',url(asset('js').'/app.js')) }}"></script>
+    <script src="{{ str_replace('http:','',url(asset('vendors/js').'/app.js')) }}"></script>
     <!-- jQuery -->
     <script src="{{asset("vendors/jquery/dist/jquery.min.js")}}" ></script>
     <!-- Bootstrap -->
