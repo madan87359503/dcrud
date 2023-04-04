@@ -30,7 +30,6 @@ public function __construct()
      */
     public function index( Request $request,$p,$m)
     {
-		die();
 	if(Auth::check()){
 		$filter=explode('&',$request->get('filter'));
                 	$mode='App\\'.'Models\\'.ucfirst($m);
