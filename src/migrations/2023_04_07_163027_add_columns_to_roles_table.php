@@ -15,6 +15,7 @@ class AddDeletedAtToRolesTable extends Migration
     {
         Schema::table('roles', function (Blueprint $table) {
            $table->timestamp('deleted_at')->nullable();
+		   $table->string('dashboard')->nullable();
         });
     }
 
