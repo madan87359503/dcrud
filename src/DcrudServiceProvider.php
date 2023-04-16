@@ -3,7 +3,7 @@
 namespace Madan\Dcrud;
 
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Database\Migrations\Migration;
 class DcrudServiceProvider extends ServiceProvider
 {
     /**
@@ -23,7 +23,7 @@ class DcrudServiceProvider extends ServiceProvider
     public function register()
     {
         $this->loadRoutesFrom(__DIR__.'/routes.php', 'dcrud');
-        $this->loadMigrationsFrom(__DIR__.'/migrations', 'dcrud');
+        $this->loadMigrationsFrom(__DIR__.'database/migrations', 'dcrud');
         $this->loadViewsFrom(__DIR__.'/views', 'dcrud', 'dcrud');
         $this->publishes([
             __DIR__.'/views' => base_path('resources/views/dcrud', 'dcrud'),

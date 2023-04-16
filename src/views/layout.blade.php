@@ -22,8 +22,8 @@ var allSubModules={!!json_encode($subModules)!!}
 var actions={!!json_encode($actions)!!}
 var pType={!!json_encode($pType)!!}
 var FormType={!!json_encode($formType)!!}
-var apipath='{{route("public")}}/api/dcrud/'
-var homedir='{{route("public")}}/'
+var apipath='{{url('/api/dcrud')}}/'
+var homedir='{{url('/')}}'
 @php $a=explode('/',Request::path());@endphp
 var dashboardtools='{{end($a)}}'
 </script>

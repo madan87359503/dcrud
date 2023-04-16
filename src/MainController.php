@@ -312,5 +312,23 @@ class MainController extends Controller
    return json_encode($component);
     }
 
-	
+	public function envconfig(Request $req){
+		
+		\Session::put('env',file_get_contents(__DIR__.'/buildTemplate/.env.template'));
+		foreach($req->db as $i=>$d){
+			MainController::writeenv($i,$d);
+		}
+		
+		file_put_contents(base_path().'/.env',\Session::get('env'));
+	if($req->step=='Next')
+	return view('dcrud::generalsetup');
+\DB::unprepared(file_get_contents(__DIR__.'/database/data.sql'));
+return redirect()->to('/app/dcrud/dashboardtools');
+	}
+	public static function writeenv($prop,$val){
+		$en=\Session::get('env');
+		$en=str_ireplace('%'.$prop.'%',$val,$en);
+		\Session::put('env',$en);
+		
+	}
 }

@@ -14,7 +14,7 @@ class AddRoleNameToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function ( $table) {
-              $table->integer('role_name')->nullable();
+              $table->integer('role_name');
         });
     }
 
