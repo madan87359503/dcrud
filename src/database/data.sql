@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 15, 2023 at 08:33 PM
+-- Generation Time: Apr 16, 2023 at 07:49 PM
 -- Server version: 10.6.0-MariaDB
 -- PHP Version: 7.4.28
 
@@ -745,6 +745,18 @@ INSERT INTO `models` (`id`, `created_at`, `updated_at`, `deleted_at`, `name`, `t
 (74, '2022-05-09 15:31:17', '2022-05-09 15:31:17', NULL, 'Gamepacks', 'gamepacks', 'published', '1', NULL, NULL, NULL),
 (75, '2022-05-09 16:24:24', '2022-05-09 16:24:24', NULL, 'Gamelayouts', 'gamelayouts', 'published', '1', NULL, NULL, NULL),
 (76, '2023-03-15 05:13:34', '2023-03-15 05:14:04', NULL, 'Websitecms', 'websitecms', 'published', '1', NULL, 'yes', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `modules`
+--
+
+CREATE TABLE `modules` (
+  `id` int(11) NOT NULL,
+  `title` varchar(111) NOT NULL,
+  `deleted_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -1750,6 +1762,12 @@ ALTER TABLE `models`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `modules`
+--
+ALTER TABLE `modules`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `myapps`
 --
 ALTER TABLE `myapps`
@@ -1873,6 +1891,12 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `models`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+
+--
+-- AUTO_INCREMENT for table `modules`
+--
+ALTER TABLE `modules`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `myapps`

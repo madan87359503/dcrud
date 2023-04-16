@@ -4639,7 +4639,7 @@ Vue.component('navbar', {
       }
     }
   },
-  template: "\n  <ul class='nav side-menu'>\n <li v-for='(b,a) in navdata.filter(function(el){return (el.navpanel_name==null) })'  :class='$router.currentRoute.path.includes(b.webpath)?\"current-page nav-\"+b.id:\"nav-\"+b.id'>\n<a v-on:click='setActive(b.id)'  v-if='navdata.filter(function(el){return (el.navpanel_name==b.id)}).length>0' ><i :class=\"b.icon\"></i> {{b.name}} <span class=\"fa fa-chevron-down\"></span></a>\n<a v-else  :href=\"homeDir+b.webpath\" ><i :class=\"b.icon\"></i> {{b.name}} </a>\n<ul  class=\"nav child_menu\" v-if='navdata.filter(function(el){return (el.navpanel_name==b.id)}).length>0'>\n     <li v-for='(c,d) in navdata.filter(function(el){return (el.navpanel_name==b.id)})' >\n    <a :href=\"homeDir+c.webpath\" > {{c.name}} </a>\n    </li>\n    </ul>\n                  </li>\n</ul>\n"
+  template: "\n  <ul class='nav side-menu'>\n <li v-for='(b,a) in navdata.filter(function(el){return (el.navpanel_name==null) })'  :class='$router.currentRoute.path.includes(b.webpath)?\"current-page nav-\"+b.id:\"nav-\"+b.id'>\n<a v-on:click='setActive(b.id)'  v-if='navdata.filter(function(el){return (el.navpanel_name==b.id)}).length>0' ><i :class=\"b.icon\"></i> {{b.name}} <span class=\"fa fa-chevron-down\"></span></a>\n<a v-else  :href=\"homeDir+'/'+b.webpath\" ><i :class=\"b.icon\"></i> {{b.name}} </a>\n<ul  class=\"nav child_menu\" v-if='navdata.filter(function(el){return (el.navpanel_name==b.id)}).length>0'>\n     <li v-for='(c,d) in navdata.filter(function(el){return (el.navpanel_name==b.id)})' >\n    <a :href=\"homeDir+'/'+c.webpath\" > {{c.name}} </a>\n    </li>\n    </ul>\n                  </li>\n</ul>\n"
 });
 
 /***/ }),
