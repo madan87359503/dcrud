@@ -1,11 +1,11 @@
 <div class="container-xxl bg-white p-0">
-@include('dcrud::website.T892343505.spinner')
+@include('T892343505.spinner')
 <style> .owl-item p{height:200px;overflow:hidden}</style>
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0" style="height: 53.91px;">
                 <a href="" class="navbar-brand p-0">
-           <img src="http://localhost/project1/dcrud-package/public/storage/uploads/1679248589_640x280.png" style="object-fit:contain;height:53px" alt="Logo">
+           <img src="{{url("/")}}/vendors/892343505/img/1679248589_640x280.png" style="object-fit:contain;height:53px" alt="Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
@@ -43,7 +43,7 @@
                             <a href="/contact" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Contact Us</a>
                         </div>
                         <div class="col-lg-6 text-center text-lg-start">
-                            <img class="img-fluid" style="height:86%;" src="http://localhost/project1/dcrud-package/public/storage/uploads/1679418904_306331093_823757255291125_1900202740210733019_n.jpg" alt="">
+                            <img class="img-fluid" style="height:86%;" src="{{url("/")}}/vendors/892343505/img/1679418904_306331093_823757255291125_1900202740210733019_n.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="http://localhost/project1/dcrud-package/public/storage/uploads/1679379652_285878825_396530625761715_34700066636644659_n.jpg">
+                        <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="{{url("/")}}/vendors/892343505/img/1679379652_285878825_396530625761715_34700066636644659_n.jpg">
                     </div>
                 </div>
             </div>
@@ -219,7 +219,7 @@
                 <div class="row g-4 portfolio-container">
                     <div class="col-lg-4 col-md-6 portfolio-item first wow zoomIn" data-wow-delay="0.1s">
                         <div class="position-relative rounded overflow-hidden">
-                            <img class="img-fluid w-100" src="http://localhost/project1/dcrud-package/public/storage/uploads/1679418904_286852636_647420429859851_6950521919313588412_n.jpg" alt="">
+                            <img class="img-fluid w-100" src="{{url("/")}}/vendors/892343505/img/1679418904_286852636_647420429859851_6950521919313588412_n.jpg" alt="">
                             <div class="portfolio-overlay">
                                 <a class="btn btn-light" href="img/portfolio-1.jpg" data-lightbox="portfolio"><i class="fa fa-plus fa-2x text-primary"></i></a>
                                 <div class="mt-auto">
@@ -231,7 +231,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 portfolio-item second wow zoomIn" data-wow-delay="0.3s">
                         <div class="position-relative rounded overflow-hidden">
-                            <img class="img-fluid w-100" src="http://localhost/project1/dcrud-package/public/storage/uploads/1679418929_website_Example2.jpg" =""="" alt="">
+                            <img class="img-fluid w-100" src="{{url("/")}}/vendors/892343505/img/1679418929_website_Example2.jpg" =""="" alt="">
                             <div class="portfolio-overlay">
                                 <a class="btn btn-light" href="" data-lightbox="portfolio"><i class="fa fa-plus fa-2x text-primary"></i></a>
                                 <div class="mt-auto">
@@ -243,7 +243,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 portfolio-item first wow zoomIn" data-wow-delay="0.6s">
                         <div class="position-relative rounded overflow-hidden">
-                            <img class="img-fluid w-100" src="http://localhost/project1/dcrud-package/public/storage/uploads/1679418928_website_Example1.jpg" alt="">
+                            <img class="img-fluid w-100" src="{{url("/")}}/vendors/892343505/img/1679418928_website_Example1.jpg" alt="">
                             <div class="portfolio-overlay">
                                 <a class="btn btn-light" href="img/portfolio-3.jpg" data-lightbox="portfolio"><i class="fa fa-plus fa-2x text-primary"></i></a>
                                 <div class="mt-auto">
@@ -255,7 +255,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 portfolio-item second wow zoomIn" data-wow-delay="0.1s">
                         <div class="position-relative rounded overflow-hidden">
-                            <img class="img-fluid w-100" src="http://localhost/project1/dcrud-package/public/storage/uploads/1679418929_website_Example3.jpg" alt="">
+                            <img class="img-fluid w-100" src="{{url("/")}}/vendors/892343505/img/1679418929_website_Example3.jpg" alt="">
                             <div class="portfolio-overlay">
                                 <a class="btn btn-light" href="img/portfolio-4.jpg" data-lightbox="portfolio"><i class="fa fa-plus fa-2x text-primary"></i></a>
                                 <div class="mt-auto">
@@ -267,7 +267,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 portfolio-item first wow zoomIn" data-wow-delay="0.3s">
                         <div class="position-relative rounded overflow-hidden">
-                            <img class="img-fluid w-100" src="http://localhost/project1/dcrud-package/public/storage/uploads/1679418929_website_Example3.jpg" alt="">
+                            <img class="img-fluid w-100" src="{{url("/")}}/vendors/892343505/img/1679418929_website_Example3.jpg" alt="">
                             <div class="portfolio-overlay">
                                 <a class="btn btn-light" href="img/portfolio-5.jpg" data-lightbox="portfolio"><i class="fa fa-plus fa-2x text-primary"></i></a>
                                 <div class="mt-auto">
@@ -279,7 +279,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 portfolio-item second wow zoomIn" data-wow-delay="0.6s">
                         <div class="position-relative rounded overflow-hidden">
-                            <img class="img-fluid w-100" src="http://localhost/project1/dcrud-package/public/storage/uploads/1679418904_316742337_1343616466174369_7838074588258919337_n.jpg" alt="">
+                            <img class="img-fluid w-100" src="{{url("/")}}/vendors/892343505/img/1679418904_316742337_1343616466174369_7838074588258919337_n.jpg" alt="">
                             <div class="portfolio-overlay">
                                 <a class="btn btn-light" href="img/portfolio-6.jpg" data-lightbox="portfolio"><i class="fa fa-plus fa-2x text-primary"></i></a>
                                 <div class="mt-auto">
@@ -303,7 +303,7 @@
                         <i class="fa fa-quote-left fa-2x mb-3"></i>
                         <p class="">ustom application for my business that exceeded my expectations. The team was very responsive and kept me informed throughout the entire process. I highly recommend them for anyone in need of application development services.</p>
                         <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="http://localhost/project1/dcrud-package/public/storage/uploads/1679419690_a.jpg" style="width: 50px; height: 50px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{{url("/")}}/vendors/892343505/img/1679419690_a.jpg" style="width: 50px; height: 50px;">
                             <div class="ps-3">
                                 <h6 class="text-white mb-1">GSS Cafe</h6>
                                 <small>Best Cafe in NP</small>
@@ -314,7 +314,7 @@
                         <i class="fa fa-quote-left fa-2x mb-3"></i>
                         <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
                         <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="http://localhost/project1/dcrud-package/public/storage/uploads/1679419690_a.jpg" style="width: 50px; height: 50px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{{url("/")}}/vendors/892343505/img/1679419690_a.jpg" style="width: 50px; height: 50px;">
                             <div class="ps-3">
                                 <h6 class="text-white mb-1">GSLC Miroku</h6>
                                 <small>Food &amp; Beauty</small>
@@ -325,7 +325,7 @@
                         <i class="fa fa-quote-left fa-2x mb-3"></i>
                         <p> I've been working with this tech company for over a year now for my digital marketing needs and they have been a great partner. Their team is knowledgeable, responsive, and always willing to go the extra mile to help my business succeed online. I highly recommend their digital marketing services.</p>
                         <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="http://localhost/project1/dcrud-package/public/storage/uploads/1679419690_a.jpg" style="width: 50px; height: 50px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{{url("/")}}/vendors/892343505/img/1679419690_a.jpg" style="width: 50px; height: 50px;">
                             <div class="ps-3">
                                 <h6 class="text-white mb-1">AG Suppliers</h6>
                                 <small>Goods and Machinery</small>
@@ -336,7 +336,7 @@
                         <i class="fa fa-quote-left fa-2x mb-3"></i>
                         <p>I reached out to this tech company to help me set up my e-commerce store and they did an amazing job. Their team was able to help me choose the right platform, design a custom website, and even provide me with ongoing support and maintenance. I couldn't be happier with the results.</p>
                         <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="http://localhost/project1/dcrud-package/public/storage/uploads/1679418904_316742337_1343616466174369_7838074588258919337_n.jpg" style="width: 50px; height: 50px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{{url("/")}}/vendors/892343505/img/1679418904_316742337_1343616466174369_7838074588258919337_n.jpg" style="width: 50px; height: 50px;">
                             <div class="ps-3">
                                 <h6 class="text-white mb-1">DB Food and Mart</h6>
                                 <small>Store</small>
@@ -366,7 +366,7 @@
                                     <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-instagram"></i></a>
                                     <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-linkedin-in"></i></a>
                                 </div>
-                                <img class="img-fluid rounded w-100" src="http://localhost/project1/dcrud-package/public/storage/uploads/1679420435_Sunny.jpg" alt="">
+                                <img class="img-fluid rounded w-100" src="{{url("/")}}/vendors/892343505/img/1679420435_Sunny.jpg" alt="">
                             </div>
                             <div class="px-4 py-3">
                                 <h5 class="fw-bold m-0">Surya Karki</h5>
@@ -384,7 +384,7 @@
                                     <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-instagram"></i></a>
                                     <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-linkedin-in"></i></a>
                                 </div>
-                                <img class="img-fluid rounded w-100" src="http://localhost/project1/dcrud-package/public/storage/uploads/1679420618_Capture.PNG" alt="">
+                                <img class="img-fluid rounded w-100" src="{{url("/")}}/vendors/892343505/img/1679420618_Capture.PNG" alt="">
                             </div>
                             <div class="px-4 py-3">
                                 <h5 class="fw-bold m-0">Madan Gaire</h5>
@@ -427,22 +427,22 @@
                         <h5 class="text-white mb-4">Project Gallery</h5>
                         <div class="row g-2">
                             <div class="col-4">
-                                <img class="img-fluid" src="http://localhost/project1/dcrud-package/public/storage/uploads/1679379652_285878825_396530625761715_34700066636644659_n.jpg" alt="Image">
+                                <img class="img-fluid" src="{{url("/")}}/vendors/892343505/img/1679379652_285878825_396530625761715_34700066636644659_n.jpg" alt="Image">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid" src="http://localhost/project1/dcrud-package/public/storage/uploads/1679418904_316742337_1343616466174369_7838074588258919337_n.jpg" alt="Image">
+                                <img class="img-fluid" src="{{url("/")}}/vendors/892343505/img/1679418904_316742337_1343616466174369_7838074588258919337_n.jpg" alt="Image">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid" src="http://localhost/project1/dcrud-package/public/storage/uploads/1679418928_website_Example1.jpg" alt="Image">
+                                <img class="img-fluid" src="{{url("/")}}/vendors/892343505/img/1679418928_website_Example1.jpg" alt="Image">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid" src="http://localhost/project1/dcrud-package/public/storage/uploads/1679418929_website_Example3.jpg" alt="Image">
+                                <img class="img-fluid" src="{{url("/")}}/vendors/892343505/img/1679418929_website_Example3.jpg" alt="Image">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid" src="http://localhost/project1/dcrud-package/public/storage/uploads/1679418929_website_Example2.jpg" alt="Image">
+                                <img class="img-fluid" src="{{url("/")}}/vendors/892343505/img/1679418929_website_Example2.jpg" alt="Image">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid" src="http://localhost/project1/dcrud-package/public/storage/uploads/1679418929_website_Example2.jpg" alt="Image">
+                                <img class="img-fluid" src="{{url("/")}}/vendors/892343505/img/1679418929_website_Example2.jpg" alt="Image">
                             </div>
                         </div>
                     </div>
@@ -482,4 +482,4 @@
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
     </div>
 
-@include('dcrud::website.T892343505.js')
+@include('T892343505.js')
