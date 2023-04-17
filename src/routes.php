@@ -1,8 +1,8 @@
 <?php
+
+Route::get('/', [Madan\Dcrud\WebsiteController::class, 'index']);
 Route::group(['middleware' => 'web'], function () {
-Route::get('/', function () {
-    return view('welcome');
-})->name('public');
+
 Route::get('/app/dcrud', function () {
     return view('dcrud::welcome');
 })->name('dcrud');
