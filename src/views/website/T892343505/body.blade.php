@@ -1,5 +1,5 @@
 <div class="container-xxl bg-white p-0">
-@include('T892343505.spinner')
+@include('dcrud::website.T892343505.spinner')
 <style> .owl-item p{height:200px;overflow:hidden}</style>
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
@@ -482,4 +482,4 @@
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
     </div>
 
-@include('T892343505.js')
+@include('dcrud::website.T892343505.js')
