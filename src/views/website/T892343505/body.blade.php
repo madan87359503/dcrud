@@ -3,7 +3,7 @@
 <style> .owl-item p{height:200px;overflow:hidden}</style>
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
-            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0" style="height: 53.91px;">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0" >
                 <a href="" class="navbar-brand p-0">
            <img src="{{url("/")}}/vendors/892343505/img/1679248589_640x280.png" style="object-fit:contain;height:53px" alt="Logo">
                 </a>
