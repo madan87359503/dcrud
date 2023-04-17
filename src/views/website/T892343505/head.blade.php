@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8">
-    <title>SEO Master - SEO Agency Website Template</title>
+    <title>Master Solutions Inc. - Possible with master</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
