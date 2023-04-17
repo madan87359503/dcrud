@@ -366,7 +366,7 @@
                                     <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-instagram"></i></a>
                                     <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-linkedin-in"></i></a>
                                 </div>
-                                <img class="img-fluid rounded w-100" src="{{url("/")}}/vendors/892343505/img/1679420435_Sunny.jpg" alt="">
+                                <img class="img-fluid rounded w-100" src="{{url("/")}}/vendors/892343505/img/1679420435_Sunny.jpg" style='max-width:62%;object-fit:contain;' alt="">
                             </div>
                             <div class="px-4 py-3">
                                 <h5 class="fw-bold m-0">Surya Karki</h5>
@@ -384,7 +384,7 @@
                                     <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-instagram"></i></a>
                                     <a class="btn btn-square text-primary bg-white my-1" href=""><i class="fab fa-linkedin-in"></i></a>
                                 </div>
-                                <img class="img-fluid rounded w-100" src="{{url("/")}}/vendors/892343505/img/1679420618_Capture.PNG" alt="">
+                                <img class="img-fluid rounded w-100" src="{{url("/")}}/vendors/892343505/img/1679420618_Capture.PNG" style='max-width:62%;object-fit:contain;' alt="">
                             </div>
                             <div class="px-4 py-3">
                                 <h5 class="fw-bold m-0">Madan Gaire</h5>
