@@ -15,9 +15,7 @@
 @foreach($navpanel as $n)                        
 <a href="{{$n->webpath}}" class="nav-item nav-link @if(basename(url()->current())==$n->webpath) active @endif ">{{$n->name}}</a>
 @endforeach
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link">Service</a>
-                        <a href="project.html" class="nav-item nav-link">Project</a>
+                      
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu m-0">
