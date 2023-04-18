@@ -17,6 +17,7 @@
 @endforeach
                       
                        
+                    </div>
                     <button type="button" class="btn text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
                     <a href="https://dcrud.app/signup" class="btn btn-secondary text-light rounded-pill py-2 px-4 ms-3">Get Started</a>
                 </div>
