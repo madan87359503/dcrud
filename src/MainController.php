@@ -322,7 +322,7 @@ class MainController extends Controller
 		file_put_contents(base_path().'/.env',\Session::get('env'));
 	if($req->step=='Next')
 	return view('dcrud::generalsetup');
-\DB::unprepared(file_get_contents(__DIR__.'/database/data.sql'));
+//\DB::unprepared(file_get_contents(__DIR__.'/database/data.sql'));
 return redirect()->to('/app/dcrud/dashboardtools');
 	}
 	public static function writeenv($prop,$val){

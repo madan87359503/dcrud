@@ -61,7 +61,10 @@ box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30p
                     transform: translate(-50%);position: relative;opacity:0;width:max-content;animation-name:animateMe1;animation-delay: 3s;
 					animation-duration: 3s; 
 					animation-fill-mode: both;font-size:16px;text-align:left;color:#009688!important;  letter-spacing: 1px;'>
-				
+				<label>App Logo URL</label>
+					</br>
+					<input name='db[app_logo]' VALUE='{{env('app_logo')}}' required>
+					</br>
 					<label>Database Connection:</label>
 					</br>
 					<input name='db[db_connection]' VALUE='{{env('db_connection')}}' required>

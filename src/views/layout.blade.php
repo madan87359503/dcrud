@@ -9,7 +9,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name='csrf-token' content='{{csrf_token()}}'>
     <title>DCRUD - Customizable dashboard with crud operation. </title>
-	  <link rel="icon" type="image/x-icon" href="{{preg_replace("#^https?\:\/\/([\w*\.]*)#", "", Request::root() )}}/vendors/favicon.ico"/>
+<style>
+.left_col{background:#e885e8 !important;}
+li>a ,.profile_info span{
+    color: #ffffff !important;
+	padding: 5px 5px 5px !important;
+	font-weight:600 !important;
+}
+
+
+.navbar-nav{
+	    margin-top: 18px !important;
+}
+#sidebar-menu.menu_section.side_menu li a:hover,a.user-profile:hover {
+	color:#3457a4 !important;
+	
+}
+a.user-profile, a.info-number{
+    padding:10px !important;
+	color:#3457a4 !important;
+	border-radius:5px;
+}
+.msg_list a span, .page-link{
+	color:#3457a4 !important;
+}
+.toggle a {
+    padding: 15px 15px 15px !important;
+}
+.top_nav li a i {
+    font-size: 20px !important;
+}
+.sidebar-footer{
+	background:#3457a4 !important;
+	    color: #3457a4 !important;
+}
+.sidebar-footer a{
+	background:#e885e8 !important;
+}
+li.current-page a, a:hover{
+	background: #e885e8 !important;
+	color: whitesmoke !important;
+}
+li.active>a{
+	background: #e885e8 !important;
+}
+ul {
+    margin-top: -5px !important;
+}
+li:before{
+	
+    background: white !important;
+
+    height: 15px !important;
+    left: 20px !important;
+    margin-top: 6px !important;
+  
+    width: 15px !important;
+    
+}
+.current-page:before{
+	background:#169f85 !important;
+}
+li:hover:before{
+	background:#169f85 !important;
+}
+
+li:hover .fa{
+	color:#169f85 !important;
+}
+.nav_title,.nav_title a.site_title:hover,#menu_toggle:hover{
+	background:#3457a4 !important;
+	
+}
+.nav_menu{
+	background:#e7eeff !important;
+}
+.card-header, .card-header h2{
+	background-color:rgb(22 159 133) !important;
+	color:white;
+}
+.card-header, .card-title ,h4{
+    padding: 5px 5px 0px 5px !important;
+	margin:0px !important;
+	font-size:1rem;
+	font-weight:600;
+}
+.card-tools .input-group {
+    margin-bottom: 4px !important;
+}
+.card{
+	    border: 1px solid rgb(22 159 133) !important;
+}
+tr td {
+    padding: 4px 0px 0px 0px !important;
+	font-weight:600;
+	
+}
+
+.btn-sm {
+        padding: 4px 5px 4px 5px !important;
+    font-size: 0.8rem !important;
+    line-height: 1.1 !important;
+}
+.btn-group{
+	
+	display:inline-flex !important;
+}
+body{
+	    background: #e885e8 !important;
+		color:#3457a4 !important;
+}
+.align-middle{
+		display:table-cell !important;
+		text-align:center;
+}
+
+*::-webkit-scrollbar {
+    width: 0.7em;
+	height:0.5em;
+}
+ 
+*::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 3px #169f85;
+}
+ 
+*::-webkit-scrollbar-thumb {
+  background-color: #169f85;
+  outline: 0.5px solid #169f85;
+}
+.nav-md .container.body .col-md-3.left_col {
+	position:fixed !important;
+}
+footer{
+	position:fixed;
+	bottom:0px;
+    background: #e885e8 !important;
+    padding: 3px 20px !important;
+	width:100vw !important;
+}
+tbody{
+	max-height:max-content !important;
+	height:max-content !important;
+	
+}
+.right_col{
+	min-height:97vh !important;
+}
+</style>	 
+	 <link rel="icon" type="image/x-icon" href="{{preg_replace("#^https?\:\/\/([\w*\.]*)#", "", Request::root() )}}/vendors/favicon.ico"/>
   <script src="{{asset("vendors/dropzone/dist/min/dropzone.min.js")}}"></script>
   <script>
 var modelData={!!json_encode($modelData)!!};
@@ -44,7 +191,7 @@ var dashboardtools='{{end($a)}}'
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="" class="site_title">   <img src="{{env('APP_LOGO')}}" alt="..." class="img-circle logo-img">&nbsp;{{env('APP_NAME')}}</span></a>
+              <a href="" class="site_title">   <img style='height:25px;object-fit:contain;' src="{{env('APP_LOGO')}}" alt="..." class="img-circle logo-img">&nbsp;{{env('APP_NAME')}}</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -52,7 +199,7 @@ var dashboardtools='{{end($a)}}'
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="{{auth()->user()->picture}}" alt="..." class="img-circle profile_img">
+                <img src="{{auth()->user()->picture==''?env('app_logo'):auth()->user()->picture}}" alt="{{env('app_logo')}}" class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
@@ -195,7 +342,9 @@ var dashboardtools='{{end($a)}}'
             <div class="clearfix"></div>
 
                      @yield('content')
-                 
+                 </br>
+                 </br>
+                 </br>
             </div>
           </div>
         </div>
@@ -203,13 +352,10 @@ var dashboardtools='{{end($a)}}'
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
-          <div class="pull-right">
+      <footer>
            <strong>Copyright © {{date('Y')}} <a href="https://solutionswithmaster.com">Master Solutions Inc.</a>.</strong> All rights reserved.
 <b>Version</b> 2.0.0
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+</footer>
         <!-- /footer content -->
     
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
