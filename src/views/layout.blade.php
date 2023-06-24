@@ -10,10 +10,9 @@
 <meta name='csrf-token' content='{{csrf_token()}}'>
     <title>DCRUD - Customizable dashboard with crud operation. </title>
 <style>
-.left_col{background:#e885e8 !important;}
-li>a ,.profile_info span{
-    color: #ffffff !important;
-	padding: 5px 5px 5px !important;
+.left_col{background:#ffffff !important;}
+li>a ,.profile_info span , .profile_info h2{
+    color: #3457a4 !important;
 	font-weight:600 !important;
 }
 
@@ -21,7 +20,7 @@ li>a ,.profile_info span{
 .navbar-nav{
 	    margin-top: 18px !important;
 }
-#sidebar-menu.menu_section.side_menu li a:hover,a.user-profile:hover {
+#sidebar-menu.menu_section.side_menu li a:hover , a.user-profile:hover {
 	color:#3457a4 !important;
 	
 }
@@ -40,35 +39,35 @@ a.user-profile, a.info-number{
     font-size: 20px !important;
 }
 .sidebar-footer{
-	background:#3457a4 !important;
-	    color: #3457a4 !important;
+	background:#3457a4  !important;
 }
 .sidebar-footer a{
-	background:#e885e8 !important;
+	background:#ffffff !important;
 }
-li.current-page a, a:hover{
-	background: #e885e8 !important;
-	color: whitesmoke !important;
+li.current-page a, a:hover ,.side-menu.nav.side-menu>li>a:hover{
+	background: #f1f3f4 !important;
+	color:#3457a4 !important;
 }
 li.active>a{
-	background: #e885e8 !important;
+	background: #f1f3f4 !important;
+	
 }
 ul {
     margin-top: -5px !important;
 }
 li:before{
 	
-    background: white !important;
+	background: #f1f3f4 !important;
 
     height: 15px !important;
     left: 20px !important;
-    margin-top: 6px !important;
+    margin-top: 10px !important;
   
     width: 15px !important;
     
 }
 .current-page:before{
-	background:#169f85 !important;
+	background:#3457a4 !important;
 }
 li:hover:before{
 	background:#169f85 !important;
@@ -78,15 +77,19 @@ li:hover .fa{
 	color:#169f85 !important;
 }
 .nav_title,.nav_title a.site_title:hover,#menu_toggle:hover{
-	background:#3457a4 !important;
+	background:#ffffff !important ;
 	
 }
+.nav_title .site_title{
+	color:#3457a4 !important;
+}
 .nav_menu{
-	background:#e7eeff !important;
+	background:#ffffff !important;
 }
 .card-header, .card-header h2{
-	background-color:rgb(22 159 133) !important;
-	color:white;
+	    background-color: rgb(241 243 244) !important;
+    color: #3658a5;
+	
 }
 .card-header, .card-title ,h4{
     padding: 5px 5px 0px 5px !important;
@@ -98,7 +101,10 @@ li:hover .fa{
     margin-bottom: 4px !important;
 }
 .card{
-	    border: 1px solid rgb(22 159 133) !important;
+	   
+    box-shadow: 1px 1px 66px -30px black;
+	border:0px;
+
 }
 tr td {
     padding: 4px 0px 0px 0px !important;
@@ -116,7 +122,7 @@ tr td {
 	display:inline-flex !important;
 }
 body{
-	    background: #e885e8 !important;
+	    background: #ffffff !important;
 		color:#3457a4 !important;
 }
 .align-middle{
@@ -143,7 +149,7 @@ body{
 footer{
 	position:fixed;
 	bottom:0px;
-    background: #e885e8 !important;
+    background: #ffffff !important;
     padding: 3px 20px !important;
 	width:100vw !important;
 }
@@ -154,6 +160,27 @@ tbody{
 }
 .right_col{
 	min-height:97vh !important;
+}
+.btn-success,.btn-primary {
+    background: #ffffff !important;
+    border: 0 !important;
+    box-shadow: 0px 0px 60px -25px black;
+	font-weight:600 !important;
+}
+.btn-success{
+	
+    color: #1abb9c  !important;
+}
+.btn-primary{
+    color: #3457a4  !important;
+}
+.history .browsed-history {
+    content-visibility: hidden;
+    border: 0px !important;
+}
+.badge-danger {
+    color: #fff;
+    background-color: #1abb9c  !important;
 }
 </style>	 
 	 <link rel="icon" type="image/x-icon" href="{{preg_replace("#^https?\:\/\/([\w*\.]*)#", "", Request::root() )}}/vendors/favicon.ico"/>
