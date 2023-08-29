@@ -45,11 +45,11 @@ a.user-profile, a.info-number{
 	background:#ffffff !important;
 }
 li.current-page a, a:hover ,.side-menu.nav.side-menu>li>a:hover{
-	background: #f1f3f4 !important;
+	background: #e0e0e0 !important;
 	color:#3457a4 !important;
 }
 li.active>a{
-	background: #f1f3f4 !important;
+	background: #e0e0e0 !important;
 	
 }
 ul {
@@ -57,7 +57,7 @@ ul {
 }
 li:before{
 	
-	background: #f1f3f4 !important;
+	background: #e0e0e0 !important;
 
     height: 15px !important;
     left: 20px !important;
@@ -79,6 +79,10 @@ li:hover .fa{
 .nav_title,.nav_title a.site_title:hover,#menu_toggle:hover{
 	background:#ffffff !important ;
 	
+}
+.nav.side-menu>li.current-page, .nav.side-menu>li.active {
+    border-left: 5px solid #1ABB9C !important;
+	border-right:none !important;
 }
 .nav_title .site_title{
 	color:#3457a4 !important;

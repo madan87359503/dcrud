@@ -2120,6 +2120,10 @@ var cpage = 1;
     };
   },
   methods: {
+    minify: function minify(content) {
+      if ((content + '...').length > 30) return content.replace(/(<([^>]+)>)/ig, "").slice(0, 30) + '...';
+      return content;
+    },
     changeval: function changeval(val, name) {
       this.form[name] = val; //console.log(val+'triggered'+name);
     },
@@ -2283,6 +2287,9 @@ var cpage = 1;
     openModule: function openModule(subModule, query) {
       var _this6 = this;
 
+      console.log('window stopped');
+      window.stop();
+      console.log(subModule + '------');
       var qdata = new Array();
       var vuemodel = '';
       var modeldata = '';
@@ -2296,7 +2303,69 @@ var cpage = 1;
         params: {}
       }).then(function (data) {
         _this6.tabHeads = data.data.tabHeadsG, _this6.formData = data.data.formDataG, _this6.form = new Form(data.data.modelData), _this6.options = data.data.allOptions, _this6.subModules = data.data.allSubModules, _this6.allActions = data.data.actions, _this6.ptype = data.data.pType, _this6.formType = data.data.FormType, _this6.getUsers(1, query);
-      }).then(history.pushState({}, null, subModule), this.moduleHistory.push([subModule, query]));
+      }).then(this.moduleHistory.push([subModule, query]))["catch"](function () {
+        // sweet alert fail
+        swal.fire({
+          icon: 'success',
+          title: 'Great!!!',
+          html: 'Something big is being built !<br/>Please select the type of page you want to display here.',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Dashboard',
+          cancelButtonText: 'Data Handler'
+        }).then(function (result) {
+          if (result.value) {
+            var formData = new FormData();
+            formData.append('name', subModule);
+            formData.append('table', subModule);
+            formData.append('publish', 'no');
+            formData.append('version', '1.0');
+            formData.append('code', '//');
+            formData.append('dashboard', 'yes');
+            formData.append('showcrud', 'yes');
+            formData.append('forms', JSON.stringify([{
+              name: "name",
+              createvalidator: "max:60|required",
+              updatevalidator: "max:60|required",
+              type: "text",
+              modeldata: 1,
+              tablehead: 1,
+              formdata: 1,
+              fillable: 1,
+              formclass: "col-lg-3"
+            }, {
+              "name": "type",
+              "createvalidator": "max:60|required",
+              "updatevalidator": "max:60|required",
+              "type": "text",
+              "modeldata": 1,
+              "tablehead": 1,
+              "formdata": 1,
+              "fillable": 1,
+              "formclass": "col-lg-3"
+            }]));
+            console.log(formData);
+            axios.post(_this6.apiPath + 'models', formData).then(function (response) {
+              console.log(response);
+              var formData = new FormData();
+              formData.append('name', subModule);
+              formData.append('type', 'page');
+              formData.append('preview', 'no');
+              formData.append('publish', 'no');
+              formData.append('afterupdate', 'updateComponent');
+              formData.append('content', 'no');
+              formData.append('_method', 'put');
+              formData.append('datasource', subModule + '-name,type,width,source,onclick');
+              console.log(formData);
+              axios.post(apipath + 'component/' + response.data.id, formData);
+            })["catch"](function (error) {
+              console.log(error);
+            });
+          }
+        });
+      });
+      ;
       qdata = this.query.split('&');
 
       for (var i = 0; i < qdata.length; i++) {
@@ -2312,6 +2381,41 @@ var cpage = 1;
   },
   mounted: function mounted() {
     var $me = this;
+
+    document.head.appendChild(document.createElement("script")).text = "(" + function () {
+      // injected DOM script is not a content script anymore,
+      // it can modify objects and functions of the page
+      var _pushState = history.pushState;
+
+      history.pushState = function (state, title, url) {
+        _pushState.call(this, state, title, url);
+
+        window.dispatchEvent(new CustomEvent("state-changed", {
+          state: state
+        }));
+      }; // repeat the above for replaceState too
+
+    } + ")();"; // remove the DOM script element
+    // And here content script listens to our DOM script custom events
+
+
+    window.addEventListener("state-changed", function (e) {
+      console.log("History state changed", e.state, location.hash);
+      var mod = document.location.href.split('/');
+      console.log(mod);
+      mod = mod[mod.length - 1];
+      console.log(mod);
+      $me.openModule(mod);
+    });
+
+    var urlChange = function urlChange() {
+      console.log('url changed');
+      var mod = document.location.href.split('/');
+      mod = mod[mod.length - 1];
+      $me.openModule(mod);
+    };
+
+    window.addEventListener('popstate', urlChange);
     console.log('Component mounted.');
 
     window.onpopstate = function (event) {
@@ -2340,9 +2444,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'pagebuilder',
   props: ['options', 'namee', 'value'],
-  created: function created() {
-    this.fetchData();
-    this.fetchCss();
+  created: function created() {//this.fetchData();
+    //  this.fetchCss();
   },
   data: function data() {
     return {
@@ -2726,7 +2829,7 @@ var render = function render() {
             src: a
           }
         });
-      }), 0) : _vm._e()]) : _c("span", [_vm._v(_vm._s(col))])]) : _vm._e();
+      }), 0) : _vm._e()]) : _c("span", [_vm._v(_vm._s(_vm.minify(col)))])]) : _vm._e();
     }), _vm._v(" "), _c("td", {
       staticClass: "align-middle btn-group"
     }, [_c("a", {
@@ -4096,11 +4199,18 @@ Vue.component('textarea-type', {
 });
 Vue.component('buttoncomp', {
   props: ['smName', 'filter', 'name', 'modFunc'],
-  template: "<button v-else class=\"btn btn-success\" @click.prevent=\"openMod(smName,filter)\" style=\"min-height: 50px;padding:20px;margin:10px;font-size: 19px;font-weight: 600;width:100%;\">\n              \n\n              <div class=\"info-box-content\">\n                <span class=\"info-box-text\">{{name}}</span>\n               \n              </div>\n              <!-- /.info-box-content -->\n            </button>\n             \n  ",
+  template: "<button v-else class=\"btn btn-success\" @click.prevent=\"pushState(smName)\" style=\"min-height: 50px;padding:20px;margin:10px;font-size: 19px;font-weight: 600;width:100%;\">\n              \n\n              <div class=\"info-box-content\">\n                <span class=\"info-box-text\">{{name}}</span>\n               \n              </div>\n              <!-- /.info-box-content -->\n            </button>\n             \n  ",
   methods: {
     openMod: function openMod(a, b) {
       // Do your stuff
       this.modFunc(a, b);
+    },
+    pushState: function pushState(url) {
+      var state = {
+        page_id: 1,
+        user_id: 5
+      };
+      history.pushState(state, "", url);
     }
   }
 });
@@ -4157,7 +4267,7 @@ Vue.component('dropzone-type', {
   },
   mounted: function mounted() {
     var dropZone = new Dropzone('.dropzone' + this.namee, {
-      url: homedir + "upload-file/" + this.smName + '/' + this.namee,
+      url: homedir + "/upload-file/" + this.smName + '/' + this.namee,
       headers: {
         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
       }
@@ -4569,6 +4679,13 @@ Vue.component('navbar', {
     });
   },
   methods: {
+    pushState: function pushState(url) {
+      var state = {
+        page_id: 1,
+        user_id: 5
+      };
+      history.pushState(state, "", url);
+    },
     setActive: function setActive(id) {
       var CURRENT_URL = window.location.href.split('#')[0].split('?')[0],
           $BODY = $('body'),
@@ -4639,7 +4756,7 @@ Vue.component('navbar', {
       }
     }
   },
-  template: "\n  <ul class='nav side-menu'>\n <li v-for='(b,a) in navdata.filter(function(el){return (el.navpanel_name==null) })'  :class='$router.currentRoute.path.includes(b.webpath)?\"current-page nav-\"+b.id:\"nav-\"+b.id'>\n<a v-on:click='setActive(b.id)'  v-if='navdata.filter(function(el){return (el.navpanel_name==b.id)}).length>0' ><i :class=\"b.icon\"></i> {{b.name}} <span class=\"fa fa-chevron-down\"></span></a>\n<a v-else  :href=\"homeDir+'/'+b.webpath\" ><i :class=\"b.icon\"></i> {{b.name}} </a>\n<ul  class=\"nav child_menu\" v-if='navdata.filter(function(el){return (el.navpanel_name==b.id)}).length>0'>\n     <li v-for='(c,d) in navdata.filter(function(el){return (el.navpanel_name==b.id)})' >\n    <a :href=\"homeDir+'/'+c.webpath\" > {{c.name}} </a>\n    </li>\n    </ul>\n                  </li>\n</ul>\n"
+  template: "\n  <ul class='nav side-menu'>\n <li v-for='(b,a) in navdata.filter(function(el){return (el.navpanel_name==null) })'  :class='$router.currentRoute.path.includes(b.webpath)?\"current-page nav-\"+b.id:\"nav-\"+b.id'>\n<a v-on:click='setActive(b.id)'  v-if='navdata.filter(function(el){return (el.navpanel_name==b.id)}).length>0' ><i :class=\"b.icon\"></i> {{b.name}} <span class=\"fa fa-chevron-down\"></span></a>\n<a v-else   v-on:click='pushState(b.webpath)'><i :class=\"b.icon\"></i> {{b.name}} </a>\n<ul  class=\"nav child_menu\" v-if='navdata.filter(function(el){return (el.navpanel_name==b.id)}).length>0'>\n     <li v-for='(c,d) in navdata.filter(function(el){return (el.navpanel_name==b.id)})' >\n    <a v-on:click='pushState(c.webpath)' > {{c.name}} </a>\n    </li>\n    </ul>\n                  </li>\n</ul>\n"
 });
 
 /***/ }),

@@ -41,12 +41,12 @@ class Component extends Model
   array (
     'name' => 'Publish',
     'bclass' => 'btn-success',
-    'update' => 'publish=published&afterupdate=updateComponent',
+    'update' => 'publish=published,afterupdate=updateComponent',
     'state' => 'no',
     'reverse' => 'true',
     'namerev' => 'Publish again',
     'bclassrev' => 'btn-info',
-    'updaterev' => 'publish=published',
+    'updaterev' => 'publish=published,afterupdate=updateComponent',
     'forms_name' => '1040',
   ),
 );
@@ -253,7 +253,7 @@ class Component extends Model
 
 		return $options;
 		}
-		public static function updateComponent($id){                     echo 'jjooooo';                     $postdata= Component::where('id',$id)->first(); 		          if($postdata['type']=='static'){            \Madan\Dcrud\MainController::generateFile($postdata);               }else if($postdata['type']=='file'){            $this->generateFileImage($postdata);        }        else{            \Madan\Dcrud\MainController::generateCO($postdata);   \Artisan::call('view:clear');  $comp= Component::findOrFail($req->id);
+		public static function updateComponent($id){                   echo 'jjooooo';                     $postdata= Component::where('id',$id)->first(); 		          if($postdata['type']=='static'){            \Madan\Dcrud\MainController::generateFile($postdata);               }else if($postdata['type']=='file'){            $this->generateFileImage($postdata);        }        else{            \Madan\Dcrud\MainController::generateCO($postdata);   \Artisan::call('view:clear');  $comp= Component::findOrFail($req->id);
                 $comp->type= 'gg';
                 $comp->save();                } 		                 }
     

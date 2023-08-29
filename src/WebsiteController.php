@@ -21,4 +21,9 @@ class WebsiteController extends Controller
 		  $siteinfo=\Madan\Dcrud\Models\Siteinfo::selectRaw('id,created_at,id,favicon,phone,title,description,keywords')->get(); $navpanel=\Madan\Dcrud\Models\Navpanel::selectRaw('id,created_at,id,name,webpath,position,type')->where("type","=","Website")->get(); $mycontents=\Madan\Dcrud\Models\Mycontents::selectRaw('id,created_at,id,title,description,content,user_name,pictures')->get();
     return view('dcrud::website.index', compact('req','siteinfo','navpanel','mycontents'));
 	}
+	public function signup(Request $req)
+    {
+		  $siteinfo=\Madan\Dcrud\Models\Siteinfo::selectRaw('id,created_at,id,favicon,phone,title,description,keywords')->get(); $navpanel=\Madan\Dcrud\Models\Navpanel::selectRaw('id,created_at,id,name,webpath,position,type')->where("type","=","Website")->get(); $mycontents=\Madan\Dcrud\Models\Mycontents::selectRaw('id,created_at,id,title,description,content,user_name,pictures')->get();
+    return view('dcrud::website.signup', compact('req','siteinfo','navpanel','mycontents'));
+	}
 }

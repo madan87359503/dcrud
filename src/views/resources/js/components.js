@@ -16,7 +16,7 @@ Vue.component('textarea-type', {
 }); 
 Vue.component('buttoncomp', {
   props: ['smName','filter','name','modFunc'],
-  template: `<button v-else class="btn btn-success" @click.prevent="openMod(smName,filter)" style="min-height: 50px;padding:20px;margin:10px;font-size: 19px;font-weight: 600;width:100%;">
+  template: `<button v-else class="btn btn-success" @click.prevent="pushState(smName)" style="min-height: 50px;padding:20px;margin:10px;font-size: 19px;font-weight: 600;width:100%;">
               
 
               <div class="info-box-content">
@@ -32,6 +32,11 @@ Vue.component('buttoncomp', {
            // Do your stuff
            this.modFunc(a,b);
        },
+	   pushState(url){
+		const state = { page_id: 1, user_id: 5 };
+
+history.pushState(state, "", url);
+	},
    }
 }); 
 Vue.component('hidden-type', {
@@ -153,7 +158,7 @@ Vue.component('dropzone-type', {
 	mounted(){
 		
 		const dropZone = new Dropzone('.dropzone'+this.namee, {
-        url: homedir+"upload-file/"+this.smName+'/'+this.namee,
+        url: homedir+"/upload-file/"+this.smName+'/'+this.namee,
 		 headers: {
         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     },
@@ -773,6 +778,11 @@ mounted(){
         
 },
 methods:{
+	pushState(url){
+		const state = { page_id: 1, user_id: 5 };
+
+history.pushState(state, "", url);
+	},
   setActive(id){
       var CURRENT_URL = window.location.href.split('#')[0].split('?')[0],
        $BODY = $('body'),
@@ -853,10 +863,10 @@ methods:{
   <ul class='nav side-menu'>
  <li v-for='(b,a) in navdata.filter(function(el){return (el.navpanel_name==null) })'  :class='$router.currentRoute.path.includes(b.webpath)?"current-page nav-"+b.id:"nav-"+b.id'>
 <a v-on:click='setActive(b.id)'  v-if='navdata.filter(function(el){return (el.navpanel_name==b.id)}).length>0' ><i :class="b.icon"></i> {{b.name}} <span class="fa fa-chevron-down"></span></a>
-<a v-else  :href="homeDir+'/'+b.webpath" ><i :class="b.icon"></i> {{b.name}} </a>
+<a v-else   v-on:click='pushState(b.webpath)'><i :class="b.icon"></i> {{b.name}} </a>
 <ul  class="nav child_menu" v-if='navdata.filter(function(el){return (el.navpanel_name==b.id)}).length>0'>
      <li v-for='(c,d) in navdata.filter(function(el){return (el.navpanel_name==b.id)})' >
-    <a :href="homeDir+'/'+c.webpath" > {{c.name}} </a>
+    <a v-on:click='pushState(c.webpath)' > {{c.name}} </a>
     </li>
     </ul>
                   </li>

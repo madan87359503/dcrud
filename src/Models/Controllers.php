@@ -50,22 +50,7 @@ class Controllers extends Model
 		public static $access=array (
   0 => '1',
 );
-		public static $pType=array (
-  0 => 'Forms',
-  1 => 'Actions',
-  2 => 'Submodules',
-  3 => 'Submodules',
-  4 => 'Submodules',
-  5 => 'Rolemodel',
-  6 => 'Controllers',
-  7 => 'Controllersa',
-  8 => 'Cactions',
-  9 => 'Cavariables',
-  10 => 'Component',
-  11 => 'Routes',
-  12 => 'Testmodel1',
-  13 => 'Testmodel2',
-);
+ public static $pType = ['dashboard' => 'no', 'showCrud' => 'yes'];
 		
 		public static $formType=array (
   'name' => 

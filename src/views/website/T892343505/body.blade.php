@@ -3,62 +3,18 @@
 <style> .owl-item p{height:200px;overflow:hidden}</style>
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
-            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0" >
-                <a href="" class="navbar-brand p-0">
-           <img src="{{url("/")}}/vendors/892343505/img/1679248589_640x280.png" style="object-fit:contain;height:53px" alt="Logo">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="fa fa-bars"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto py-0">
-@foreach($navpanel as $n)                        
-<a href="{{$n->webpath}}" class="nav-item nav-link @if(basename(url()->current())==$n->webpath) active @endif ">{{$n->name}}</a>
-@endforeach
-                      
-                       
-                    </div>
-                    <button type="button" class="btn text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
-                    <a href="https://dcrud.app/signup" class="btn btn-secondary text-light rounded-pill py-2 px-4 ms-3">Get Started</a>
-                </div>
-            </nav>
+        
+@include('dcrud::website.T892343505.partials.navbar')
 
-            <div class="container-xxl py-5 bg-primary hero-header mb-5" style="height: 760px;overflow:hidden;">
-                <div class="container my-5 py-5 px-lg-5" style="height: 760px;overflow:hidden;">
-                    <div class="row g-5 py-5">
-                        <div class="col-lg-6 text-center text-lg-start">
-                            <h1 class="text-white mb-4 animated zoomIn">high-quality solutions that meet the unique needs</h1>
-                            <p class="text-white pb-3 animated zoomIn">We are a technology company that specializes in providing web app, mobile app, and lottery display services to businesses and organizations with a focus on innovation and customer satisfaction</p>
-                            <a href="#about" class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Learn More</a>
-                            <a href="/contact" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Contact Us</a>
-                        </div>
-                        <div class="col-lg-6 text-center text-lg-start">
-                            <img class="img-fluid" style="height:86%;" src="{{url("/")}}/vendors/892343505/img/1679418904_306331093_823757255291125_1900202740210733019_n.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
+@include('dcrud::website.T892343505.partials.hero')
+
+           
         </div>
         <!-- Navbar & Hero End -->
 
 
-        <!-- Full Screen Search Start -->
-        <div class="modal fade" id="searchModal" tabindex="-1">
-            <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content" style="background: rgba(29, 29, 39, 0.7);">
-                    <div class="modal-header border-0">
-                        <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body d-flex align-items-center justify-content-center">
-                        <div class="input-group" style="max-width: 600px;">
-                            <input type="text" class="form-control bg-transparent border-light p-3" placeholder="Type search keyword">
-                            <button class="btn btn-light px-4"><i class="bi bi-search"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Full Screen Search End -->
+       
+@include('dcrud::website.T892343505.partials.fsSearch')
 
 
         <!-- About Start -->
@@ -388,88 +344,9 @@
         <!-- Team End -->
         
 
-        <!-- Footer Start -->
-        <div class="container-fluid bg-primary text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
-            <div class="container py-5 px-lg-5">
-                <div class="row g-5">
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Get In Touch</h5>
-                        <p class=""><i class="fa fa-map-marker-alt me-3"></i>801 West Rancier Ave</p>                        <p class=""><i class="fa fa-map-marker-alt me-3"></i>Killeen, Texas 76541</p>
-                        <p class=""><i class="fa fa-phone-alt me-3"></i>(254) 813-8377</p>
-                        <p><i class="fa fa-envelope me-3"></i>solutionswithmaster@gmail.com</p>
-                        <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Popular Link</h5>
-                        <a class="btn btn-link" href="">About Us</a>
-                        <a class="btn btn-link" href="">Contact Us</a>
-                        <a class="btn btn-link" href="">Privacy Policy</a>
-                        <a class="btn btn-link" href="">Terms &amp; Condition</a>
-                        <a class="btn btn-link" href="">Career</a>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Project Gallery</h5>
-                        <div class="row g-2">
-                            <div class="col-4">
-                                <img class="img-fluid" src="{{url("/")}}/vendors/892343505/img/1679379652_285878825_396530625761715_34700066636644659_n.jpg" alt="Image">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid" src="{{url("/")}}/vendors/892343505/img/1679418904_316742337_1343616466174369_7838074588258919337_n.jpg" alt="Image">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid" src="{{url("/")}}/vendors/892343505/img/1679418928_website_Example1.jpg" alt="Image">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid" src="{{url("/")}}/vendors/892343505/img/1679418929_website_Example3.jpg" alt="Image">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid" src="{{url("/")}}/vendors/892343505/img/1679418929_website_Example2.jpg" alt="Image">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid" src="{{url("/")}}/vendors/892343505/img/1679418929_website_Example2.jpg" alt="Image">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Newsletter</h5>
-                        <p class="">Leave Us your email to get information about our latest updates and newsletters.</p>
-                        <div class="position-relative w-100 mt-3">
-                            <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Your Email" style="height: 48px;">
-                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container px-lg-5">
-                <div class="copyright">
-                    <div class="row">
-                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            © <a class="border-bottom" href="#">Master Solutions Inc.</a>, All Right Reserved. 
 
-                        </div>
-                        <div class="col-md-6 text-center text-md-end">
-                            <div class="footer-menu">
-                                <a href="">Home</a>
-                                <a href="">Cookies</a>
-                                <a href="">Help</a>
-                                <a href="">FQAs</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Footer End -->
+@include('dcrud::website.T892343505.partials.footer')
 
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
     </div>
 
 @include('dcrud::website.T892343505.js')

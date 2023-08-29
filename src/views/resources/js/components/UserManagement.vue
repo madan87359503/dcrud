@@ -136,7 +136,7 @@
 					</span>
 					<span v-else-if="formType[indx].type=='select'">{{ options[indx][col] }}</span>
 					<span v-else-if="formType[indx].type=='dropzone'"><span v-if="col!=null && col!='null' && col!=''"><img style='max-width:70px;max-height:70px;' v-for= "(a,b) in col.split(',')" :src='a'></span> </span>
-                                        <span v-else >{{col}}</span>
+                                        <span v-else >{{minify(col)}}</span>
 				</td>
                 <td class="align-middle btn-group">
                   <a class='btn btn-sm btn-info ' href="" @click.prevent="editUser(user)">
@@ -212,6 +212,12 @@
     },
 
     methods: {
+	minify(content){
+	if((content+'...').length>30)
+	return content.replace(/(<([^>]+)>)/ig, "").slice(0,30)+'...';
+	return content;
+	
+	},
 	changeval(val,name){
 	this.form[name]=val;
 		//console.log(val+'triggered'+name);
@@ -355,7 +361,9 @@
         })
       },
 	  openModule(subModule,query) {
-	 
+	  console.log('window stopped');
+	  window.stop();
+	 console.log(subModule+'------');
 	  let qdata=new Array();
 let vuemodel='';let modeldata='';
 	  this.users= {};
@@ -383,9 +391,77 @@ this.searchform= new Form();
 		this.getUsers(1,query)
 		
         }).then( 
- history.pushState({}, null, subModule),
 this.moduleHistory.push([subModule,query]),
-		);
+		).catch(() => {
+              // sweet alert fail
+              swal.fire({
+                icon: 'success',
+                title: 'Great!!!',
+                html: 'Something big is being built !<br/>Please select the type of page you want to display here.',
+				
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Dashboard',
+          cancelButtonText: 'Data Handler',
+              }).then((result) => {
+          if (result.value) {
+		 const formData=new FormData();
+		 formData.append('name', subModule);
+		 formData.append('table', subModule);
+		 formData.append('publish', 'no');
+		 formData.append('version', '1.0');
+		 formData.append('code', '//');
+		 formData.append('dashboard', 'yes');
+		 formData.append('showcrud', 'yes');
+		 formData.append('forms', JSON.stringify([{
+						name:"name",
+						createvalidator:"max:60|required",
+						updatevalidator:"max:60|required",
+						type:"text",
+						modeldata:1,
+						tablehead:1,
+						formdata:1,
+						fillable:1,
+						formclass:"col-lg-3"
+						
+			},
+			{
+						"name":"type",
+						"createvalidator":"max:60|required",
+						"updatevalidator":"max:60|required",
+						"type":"text",
+						"modeldata":1,
+						"tablehead":1,
+						"formdata":1,
+						"fillable":1,
+						"formclass":"col-lg-3"
+						
+			}]));
+		 console.log(formData);
+		  axios.post(this.apiPath+'models', formData)
+  .then(function (response) {
+  console.log(response);
+   const formData=new FormData();
+		 formData.append('name', subModule);
+		 formData.append('type', 'page');
+		 formData.append('preview', 'no');
+		 formData.append('publish', 'no');
+		 formData.append('afterupdate', 'updateComponent');
+		 formData.append('content', 'no');
+		 formData.append('_method', 'put');
+		 formData.append('datasource', subModule+'-name,type,width,source,onclick');
+		 
+  console.log(formData);
+     axios.post(apipath+'component/'+response.data.id, formData)
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+            
+          }
+        })
+            }); ;
 		qdata=this.query.split('&');
 for(let i=0;i<qdata.length;i++){
  vuemodel=qdata[i].split('=')[0],
@@ -403,7 +479,48 @@ this.searchform[vuemodel]=modeldata
       this.getUsers();
     },
     mounted() {
+	
 var $me=this;
+
+
+
+document.head.appendChild(document.createElement("script")).text =
+  "(" +
+  function () {
+    // injected DOM script is not a content script anymore,
+    // it can modify objects and functions of the page
+    var _pushState = history.pushState;
+    history.pushState = function (state, title, url) {
+      _pushState.call(this, state, title, url);
+      window.dispatchEvent(new CustomEvent("state-changed", { state }));
+    };
+    // repeat the above for replaceState too
+  } +
+  ")();"; // remove the DOM script element
+
+// And here content script listens to our DOM script custom events
+window.addEventListener("state-changed", function (e) {
+  console.log("History state changed", e.state, location.hash);
+   var mod=document.location.href.split('/');
+   console.log(mod);
+        mod=mod[mod.length-1];
+		 console.log(mod);
+        $me.openModule(mod);
+});
+
+
+
+
+
+	  const urlChange = () => {
+	  console.log('url changed');
+       var mod=document.location.href.split('/');
+        mod=mod[mod.length-1];
+        $me.openModule(mod);
+    };
+
+    window.addEventListener('popstate', urlChange);
+
       console.log('Component mounted.')
  window.onpopstate = function(event) {
         var mod=document.location.href.split('/');

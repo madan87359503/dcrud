@@ -203,8 +203,8 @@
                  name: 'pagebuilder',
              props: ['options','namee','value'],
     created() {
-        this.fetchData();
-        this.fetchCss();
+        //this.fetchData();
+      //  this.fetchCss();
     },
    data() {
       return {

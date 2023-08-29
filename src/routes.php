@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/', [Madan\Dcrud\WebsiteController::class, 'index']);
+Route::get('/signup', [Madan\Dcrud\WebsiteController::class, 'signup']);
 Route::group(['middleware' => 'web'], function () {
 
 Route::get('/app/dcrud', function () {
