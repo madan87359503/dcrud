@@ -236,7 +236,7 @@ class Models extends Model {
         $o = $option;
         $c = implode(',', $f);
         $model = '';
-        $model = File::get(base_path() . '/buildTemplate/model');
+        $model = File::get(base_path(' vendor/madan/dcrud/src') . '/buildTemplate/model');
         $model = str_replace('%Table%', ucfirst($m->name), $model);
         $model = str_replace('%table%', $m->attributes['table'], $model);
         $model = str_replace('%relation%', '', $model);
