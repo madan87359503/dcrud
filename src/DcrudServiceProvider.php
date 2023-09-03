@@ -31,6 +31,9 @@ class DcrudServiceProvider extends ServiceProvider
 		$this->publishes([
             __DIR__.'/public_assets' => base_path('public/vendors', 'dcrud'),
         ]);
+		$this->publishes([
+            __DIR__.'/public_assets/essentials' => base_path('public', 'dcrud'),
+        ]);
         $this->publishes([
         __DIR__ . '/views/resources/js' =>
         resource_path('assets/vendor/dcrud'
